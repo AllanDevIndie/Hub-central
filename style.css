@@ -25,6 +25,21 @@ html.light {
     padding: 0;
 }
 
+    hr{
+        border: none;
+        border-top: 3px solid var(--cor-borda);
+        margin: 2rem 0;
+        padding: 20px;
+    }
+
+    .linksecundario {
+        color: var(--cor-texto);
+        text-decoration: none;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        transition: var(--transicao);
+        margin: 10px 0;
+    }
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
@@ -279,4 +294,5 @@ footer {
         flex-wrap: wrap;
         gap: 0.5rem;
     }
+
 }
