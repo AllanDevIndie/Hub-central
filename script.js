@@ -1,51 +1,75 @@
 const botaoTema = document.querySelector('.botao-tema');
 const logo = document.querySelector('.logo');
 const fotoPerfil = document.querySelector('.foto-perfil');
+
+// Configurações de Ativos
+const ASSETS = {
+    dark: {
+        logo: 'assets/logo.png',
+        foto: 'assets/perfil01.jpg'
+    },
+    light: {
+        logo: 'assets/logo2.png',
+        foto: 'assets/perfil04.jpg'
+    }
+};
+
+// Função para aplicar o tema
+function aplicarTema(tema, comTransicao = true) {
+    const isLight = tema === 'light';
+    
+    // Aplica a classe no HTML
+    if (isLight) {
+        document.documentElement.classList.add('light');
+    } else {
+        document.documentElement.classList.remove('light');
+    }
+
+    // Atualiza Ativos com transição
+    if (comTransicao) {
+        // Efeito de fade na foto de perfil
+        fotoPerfil.style.opacity = '0';
+        setTimeout(() => {
+            logo.src = isLight ? ASSETS.light.logo : ASSETS.dark.logo;
+            fotoPerfil.src = isLight ? ASSETS.light.foto : ASSETS.dark.foto;
+            fotoPerfil.style.opacity = '1';
+        }, 200);
+    } else {
+        logo.src = isLight ? ASSETS.light.logo : ASSETS.dark.logo;
+        fotoPerfil.src = isLight ? ASSETS.light.foto : ASSETS.dark.foto;
+    }
+
+    // Salva preferência
+    localStorage.setItem('tema', tema);
+    
+    // Atualiza Acessibilidade
+    botaoTema.setAttribute('aria-label', isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro');
+}
+
+// Verifica tema salvo ou preferência do sistema
 const temaSalvo = localStorage.getItem('tema');
-const logoDark = 'assets/logo.png';
-const logoLight = 'assets/logo2.png';
-const fotoDark = 'assets/perfil01.jpg';
-const fotoLight = 'assets/perfil04.jpg';
+const prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-function atualizarLogo(modoClaroAtivo) {
-    logo.setAttribute('src', modoClaroAtivo ? logoLight : logoDark);
+if (temaSalvo) {
+    aplicarTema(temaSalvo, false);
+} else if (!prefereDark) {
+    aplicarTema('light', false);
 }
 
-function atualizarFotoPerfil(modoClaroAtivo, comTransicao = true) {
-    const novaFoto = modoClaroAtivo ? fotoLight : fotoDark;
-
-    if (fotoPerfil.getAttribute('src') === novaFoto) {
-        return;
-    }
-
-    if (!comTransicao) {
-        fotoPerfil.setAttribute('src', novaFoto);
-        return;
-    }
-
-    fotoPerfil.classList.add('trocando');
-
-    setTimeout(() => {
-        fotoPerfil.setAttribute('src', novaFoto);
-        fotoPerfil.classList.remove('trocando');
-    }, 300);
-}
-
-if (temaSalvo === 'light') {
-    document.documentElement.classList.add('light');
-    botaoTema.setAttribute('aria-label', 'Alternar para modo escuro');
-    atualizarLogo(true);
-    atualizarFotoPerfil(true, false);
-}
-
+// Evento de Clique
 botaoTema.addEventListener('click', () => {
-    const modoClaroAtivo = document.documentElement.classList.toggle('light');
+    const novoTema = document.documentElement.classList.contains('light') ? 'dark' : 'light';
+    aplicarTema(novoTema);
+});
 
-    localStorage.setItem('tema', modoClaroAtivo ? 'light' : 'dark');
-    atualizarLogo(modoClaroAtivo);
-    atualizarFotoPerfil(modoClaroAtivo);
-    botaoTema.setAttribute(
-        'aria-label',
-        modoClaroAtivo ? 'Alternar para modo escuro' : 'Alternar para modo claro'
-    );
+// Adiciona animação de entrada nos cards
+const cards = document.querySelectorAll('.opcoes');
+cards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    }, 400 + (index * 100));
 });

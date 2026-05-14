@@ -3,47 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Allan Albuquerque | Hub Central - Marketing & Tech</title>
+    <meta name="description" content="Hub central de Allan Albuquerque - Especialista em Gestão de Tráfego, Design Estratégico e Desenvolvimento Front-end.">
+    
+    <!-- Fontes e Estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Scripts -->
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="topo-acoes">
-        <img id="logo" src="assets/logo.png" alt="Logo" class="logo">
+    <header class="topo-acoes">
+        <img id="logo" src="assets/logo.png" alt="DEV ALBK Logo" class="logo">
         <button class="botao-tema" type="button" aria-label="Alternar para modo claro">
             <svg class="icone-lampada" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 21h6" />
-                <path d="M10 17h4" />
-                <path d="M8 14a6 6 0 1 1 8 0c-.9.8-1.5 1.8-1.7 3H9.7c-.2-1.2-.8-2.2-1.7-3Z" />
-                <path d="M12 2v2" />
-                <path d="M4.9 4.9l1.4 1.4" />
-                <path d="M2 12h2" />
-                <path d="M19.1 4.9l-1.4 1.4" />
-                <path d="M20 12h2" />
+                <path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M12 20v2M17.66 17.66l1.41 1.41M22 12h-2M17.66 6.34l1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </button>
-    </div>
+    </header>
+
     <main>
-    <img class="foto-perfil" src="assets/perfil01.jpg" alt="Imagem">
-    <h1>Olá, eu sou <br> Allan Albuquerque</h1>
-    <h3>Dev Front-end | UI/UX Designer | Gestor de tráfego pago</h3>
+        <div class="perfil-container">
+            <img class="foto-perfil" src="assets/perfil01.jpg" alt="Allan Albuquerque">
+        </div>
+        <h1>Olá, eu sou <br> Allan Albuquerque</h1>
+        <h3>Dev Front-end | UI/UX Designer | Gestor de tráfego pago</h3>
     </main>
-    <article>
+
+    <article class="grid-links">
         <a class="opcoes" href="#sobre-mim">
-    <h3>Sobre mim</h3></a>
-        <a class="opcoes" href="#servicos">
+            <h3>Sobre mim</h3>
+        </a>
+        <a class="opcoes" href="https://allandevindie.github.io/sitedevalbk/" target="_blank">
             <h3>Serviços</h3>
         </a>
         <a class="opcoes" href="#projetos">
-            <h3>Projetos</h3>
+            <h3>Portfólio</h3>
         </a>
-        <a class="opcoes" href="#blog">
+        <a class="opcoes" href="https://allanalbuquerque.substack.com/" target="_blank">
             <h3>Blog</h3>
         </a>
     </article>
+
     <footer>
-        <p>2026 &copy; Todos os direitos reservados</p>
-        <p>&#10084; <a href="https://nubank.com.br/cobrar/5onu0/6a04eb7d-cda8-4db0-a2a9-cdb2051739d3" target="_blank">me pague um café</a></p> 
+        <nav class="redes-sociais">
+            <a href="https://allandevindie.github.io/curriculum/" class="rede-link" target="_blank">CV Online</a>
+            <a href="https://instagram.com/devalbk" class="rede-link" target="_blank">Instagram</a>
+            <a href="https://linkedin.com/in/albuquemkt" class="rede-link" target="_blank">LinkedIn</a>
+            <a href="https://github.com/AllanDevIndie" class="rede-link" target="_blank">GitHub</a>
+        </nav>
+        
+        <p class="copyright">2026 &copy; Allan Albuquerque. Todos os direitos reservados.</p>
+        
+        <a href="https://nubank.com.br/cobrar/5onu0/6a04eb7d-cda8-4db0-a2a9-cdb2051739d3" class="cafe-link" target="_blank">
+            <span>☕ Me pague um café</span>
+        </a>
     </footer>
 </body>
 </html>
