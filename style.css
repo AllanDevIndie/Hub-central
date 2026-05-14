@@ -1,0 +1,151 @@
+html {
+    --cor-fundo: black;
+    --cor-texto: white;
+    --cor-borda: #2b2b2b;
+    --cor-card: rgba(100, 188, 172, 0.5);
+    --cor-botao: #1a1a1a;
+    --cor-botao-hover: #2b2b2b;
+}
+
+html.light {
+    --cor-fundo: #f4f4f4;
+    --cor-texto: #111111;
+    --cor-borda: #d0d0d0;
+    --cor-card: rgba(100, 188, 172, 0.25);
+    --cor-botao: #ffffff;
+    --cor-botao-hover: #e8e8e8;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+html, body {
+    min-height: 100vh;
+}
+
+.topo-acoes {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo,
+.botao-tema {
+    width: 100px;
+    height: auto;
+}
+
+.logo {
+    border-radius: 0;
+    object-fit: contain;
+}
+
+.botao-tema {
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.botao-tema:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+.icone-lampada {
+    width: 25px;
+    height: 25px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+main img {
+    width: 400px;          
+    border-radius: 50%;    
+    margin-top: 20px;
+    display: block;        
+    margin-left: auto;    
+    margin-right: auto;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.foto-perfil.trocando {
+    opacity: 0;
+    transform: scale(0.96);
+}
+main {
+    flex: 1;
+}
+h1 {
+    color: var(--cor-texto);
+    text-align: center;
+}
+
+h2 {
+    color: var(--cor-texto);
+    text-align: center;
+    margin-top: 10px;
+}
+h3 {
+    color: var(--cor-texto);
+    text-align: center;
+    margin-top: 10px;
+}
+
+article {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.opcoes {
+    border: var(--cor-borda) solid 2px;
+    background-color: var(--cor-card);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.opcoes h3 {
+    margin: 0;
+}
+
+
+footer {
+    text-align: center;
+    color: var(--cor-texto);
+    margin-top: 20px;
+
+}
+
+a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
