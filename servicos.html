@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | DEV ALBK - Design, Tráfego e Automações</title>
+    <meta name="description" content="Conheça os serviços profissionais da DEV ALBK: Gestão de Tráfego Pago, Design Estratégico e Automações de Vendas.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para a página de Serviços */
+        .servicos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .servicos-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .servicos-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--cor-primaria);
+        }
+
+        .servicos-header p {
+            font-size: 1.2rem;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .servico-card {
+            background: rgba(100, 182, 172, 0.05);
+            border: 2px solid rgba(100, 182, 172, 0.1);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servico-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 182, 172, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .servico-card:hover::before {
+            left: 100%;
+        }
+
+        .servico-card:hover {
+            border-color: var(--cor-primaria);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(100, 182, 172, 0.15);
+        }
+
+        .servico-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--cor-primaria);
+        }
+
+        .servico-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--cor-secundaria);
+        }
+
+        .servico-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .servico-card .cta-button {
+            display: inline-block;
+            background: var(--cor-primaria);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--cor-primaria);
+        }
+
+        .servico-card .cta-button:hover {
+            background: transparent;
+            color: var(--cor-primaria);
+        }
+
+        .servico-details {
+            background: rgba(2, 40, 115, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .servico-card:hover .servico-details {
+            max-height: 300px;
+        }
+
+        /* Dark Mode */
+        body.dark-mode .servico-card {
+            background: rgba(100, 182, 172, 0.08);
+            border-color: rgba(100, 182, 172, 0.15);
+        }
+
+        body.dark-mode .servico-card:hover {
+            border-color: var(--cor-primaria);
+        }
+
+        body.dark-mode .servico-card h2 {
+            color: var(--cor-destaque);
+        }
+
+        body.dark-mode .servico-card p,
+        body.dark-mode .servico-details {
+            color: #aaa;
+        }
+
+        /* Voltar ao Hub */
+        .back-to-hub {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(100, 182, 172, 0.1);
+        }
+
+        .back-to-hub a {
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-hub a:hover {
+            opacity: 0.7;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .servicos-header h1 {
+                font-size: 2rem;
+            }
+
+            .servicos-container {
+                padding: 3rem 1.5rem;
+            }
+
+            .servico-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header com Logo e Tema -->
+    <header class="header-servicos">
+        <div class="header-content">
+            <a href="index.html" class="logo">ALBK</a>
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="servicos-container">
+        <div class="servicos-header reveal">
+            <h1>Nossos Serviços</h1>
+            <p>Soluções estratégicas para transformar sua marca de atacado em uma máquina de vendas</p>
+        </div>
+
+        <div class="servicos-grid">
+            <!-- Card 1: Tráfego Pago -->
+            <div class="servico-card reveal">
+                <div class="servico-icon">📱</div>
+                <h2>Gestão de Tráfego Pago</h2>
+                <p>Campanhas estratégicas no Facebook e Instagram Ads focadas em captação de leads qualificados.</p>
+                <a href="trafego/index.html" class="cta-button">Saiba Mais →</a>
+                <div class="servico-details">
+                    <strong>Inclui:</strong>
+                    <ul style="text-align: left; margin-top: 0.5rem;">
+                        <li>✓ Estratégia de segmentação</li>
+                        <li>✓ Criação de criativos</li>
+                        <li>✓ Otimização de campanhas</li>
+                        <li>✓ Relatórios detalhados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 2: Design Estratégico -->
+            <div class="servico-card reveal">
+                <div class="servico-icon">🎨</div>
+                <h2>Design Estratégico</h2>
+                <p>Identidade visual e criativos que convertem. Do branding ao material de vendas.</p>
+                <a href="#design" class="cta-button">Em Breve →</a>
+                <div class="servico-details">
+                    <strong>Inclui:</strong>
+                    <ul style="text-align: left; margin-top: 0.5rem;">
+                        <li>✓ Branding completo</li>
+                        <li>✓ Criativos para anúncios</li>
+                        <li>✓ Landing pages</li>
+                        <li>✓ Material de vendas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 3: Automações -->
+            <div class="servico-card reveal">
+                <div class="servico-icon">⚙️</div>
+                <h2>Automação de Vendas</h2>
+                <p>Sistemas e processos que organizam seu atendimento e não deixam nenhum lead cair.</p>
+                <a href="#automacao" class="cta-button">Em Breve →</a>
+                <div class="servico-details">
+                    <strong>Inclui:</strong>
+                    <ul style="text-align: left; margin-top: 0.5rem;">
+                        <li>✓ Funis de vendas</li>
+                        <li>✓ Integração com CRM</li>
+                        <li>✓ Chatbots inteligentes</li>
+                        <li>✓ Relatórios de performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chamada para Ação -->
+        <div class="cta-section reveal" style="text-align: center; margin-top: 4rem; padding: 3rem; background: rgba(100, 182, 172, 0.1); border-radius: 16px;">
+            <h2 style="margin-bottom: 1rem;">Pronto para escalar?</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Receba um diagnóstico gratuito e descubra qual serviço é perfeito para o seu negócio.</p>
+            <a href="https://wa.me/5581992493400?text=Gostaria%20de%20conhecer%20mais%20sobre%20os%20servi%C3%A7os%20da%20DEV%20ALBK" class="cta-button" style="background: var(--cor-primaria); color: white; padding: 1rem 3rem; font-size: 1.1rem;">Conversar no WhatsApp</a>
+        </div>
+
+        <!-- Voltar ao Hub -->
+        <div class="back-to-hub">
+            <a href="index.html">← Voltar ao Hub Central</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Verificar preferência salva
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+
+        // Scroll Reveal
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const revealTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        reveal();
+
+        // Estilos para o reveal
+        const style = document.createElement('style');
+        style.textContent = `
+            .reveal {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: all 1s ease-out;
+            }
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .header-servicos {
+                background: linear-gradient(135deg, #022873 0%, #011640 100%);
+                padding: 1.5rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 2px solid rgba(100, 182, 172, 0.2);
+            }
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .logo {
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: var(--cor-primaria);
+                text-decoration: none;
+            }
+            .theme-toggle {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            .theme-toggle:hover {
+                transform: scale(1.2);
+            }
+            body.dark-mode {
+                background: #0D0D0D;
+                color: #e0e0e0;
+            }
+            body.dark-mode .servicos-header p {
+                color: #999;
+            }
+            .cta-button {
+                display: inline-block;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
