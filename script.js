@@ -27,23 +27,35 @@ function aplicarTema(tema, comTransicao = true) {
 
     // Atualiza Ativos com transição
     if (comTransicao) {
-        // Efeito de fade na foto de perfil
-        fotoPerfil.style.opacity = '0';
+        if (fotoPerfil) {
+            fotoPerfil.style.opacity = '0';
+        }
+
         setTimeout(() => {
-            logo.src = isLight ? ASSETS.light.logo : ASSETS.dark.logo;
-            fotoPerfil.src = isLight ? ASSETS.light.foto : ASSETS.dark.foto;
-            fotoPerfil.style.opacity = '1';
+            if (logo) {
+                logo.src = isLight ? ASSETS.light.logo : ASSETS.dark.logo;
+            }
+            if (fotoPerfil) {
+                fotoPerfil.src = isLight ? ASSETS.light.foto : ASSETS.dark.foto;
+                fotoPerfil.style.opacity = '1';
+            }
         }, 200);
     } else {
-        logo.src = isLight ? ASSETS.light.logo : ASSETS.dark.logo;
-        fotoPerfil.src = isLight ? ASSETS.light.foto : ASSETS.dark.foto;
+        if (logo) {
+            logo.src = isLight ? ASSETS.light.logo : ASSETS.dark.logo;
+        }
+        if (fotoPerfil) {
+            fotoPerfil.src = isLight ? ASSETS.light.foto : ASSETS.dark.foto;
+        }
     }
 
     // Salva preferência
     localStorage.setItem('tema', tema);
     
     // Atualiza Acessibilidade
-    botaoTema.setAttribute('aria-label', isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro');
+    if (botaoTema) {
+        botaoTema.setAttribute('aria-label', isLight ? 'Alternar para modo escuro' : 'Alternar para modo claro');
+    }
 }
 
 // Verifica tema salvo ou preferência do sistema
