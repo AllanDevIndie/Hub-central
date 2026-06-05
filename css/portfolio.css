@@ -1,0 +1,421 @@
+/* ===== PORTFOLIO PAGE STYLES ===== */
+
+/* Header */
+.portfolio-header {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: #FFFFFF;
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.portfolio-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.portfolio-header p {
+    font-size: 1.3rem;
+    color: #E3C053;
+    font-weight: 300;
+}
+
+/* Seções */
+.portfolio-section {
+    padding: 80px 20px;
+    background: #FFFFFF;
+}
+
+.portfolio-section.bg-light {
+    background: #f8f8f8;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.section-header h2 i {
+    color: #E3C053;
+    font-size: 2.2rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 300;
+}
+
+/* ===== PORTFOLIO GRID (WEB) ===== */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.portfolio-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(227, 192, 83, 0.2);
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-image:hover img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-image:hover .card-overlay {
+    opacity: 1;
+}
+
+.btn-visit {
+    background: #E3C053;
+    color: #000000;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+.btn-visit:hover {
+    background: #FFFFFF;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 1.3rem;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.tech-stack {
+    font-size: 0.85rem;
+    color: #E3C053;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ===== TESTIMONIALS GRID (TRÁFEGO) ===== */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #E3C053;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-card.placeholder {
+    border-left: 4px solid #ccc;
+    text-align: center;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.brand-logo {
+    width: 50px;
+    height: 50px;
+    background: #E3C053;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.brand-info h3 {
+    font-size: 1.1rem;
+    color: #000000;
+    margin: 0;
+}
+
+.brand-info .role {
+    font-size: 0.85rem;
+    color: #999;
+    margin: 5px 0 0 0;
+}
+
+.testimonial-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.rating {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.rating i {
+    color: #E3C053;
+    font-size: 0.9rem;
+}
+
+.testimonial-card.placeholder .btn-primary {
+    margin-top: 15px;
+}
+
+/* ===== DESIGN GRID ===== */
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.design-card {
+    background: #FFFFFF;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.design-card:hover {
+    transform: translateY(-8px);
+    border-color: #E3C053;
+    box-shadow: 0 12px 30px rgba(227, 192, 83, 0.15);
+}
+
+.design-image {
+    font-size: 3.5rem;
+    color: #E3C053;
+    margin-bottom: 20px;
+}
+
+.design-card h3 {
+    font-size: 1.3rem;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #E3C053;
+    border: 2px solid #E3C053;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: #E3C053;
+    color: #000000;
+}
+
+/* ===== COMING SOON BANNER ===== */
+.coming-soon-banner {
+    background: linear-gradient(135deg, #E3C053 0%, #f0d580 100%);
+    padding: 60px 40px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+.coming-soon-banner i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.coming-soon-banner h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.coming-soon-banner p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ===== SYSTEMS GRID ===== */
+.systems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.system-card {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-top: 4px solid #E3C053;
+}
+
+.system-card:hover {
+    transform: translateY(-5px);
+}
+
+.system-icon {
+    font-size: 2.5rem;
+    color: #E3C053;
+    margin-bottom: 20px;
+}
+
+.system-card h3 {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.system-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.tag {
+    display: inline-block;
+    background: #E3C053;
+    color: #000000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.system-card .btn-secondary {
+    margin-top: 15px;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: #FFFFFF;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    color: #E3C053;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.btn-large {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .portfolio-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .portfolio-grid,
+    .testimonials-grid,
+    .design-grid,
+    .systems-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .portfolio-section {
+        padding: 50px 20px;
+    }
+}
