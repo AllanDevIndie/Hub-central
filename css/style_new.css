@@ -1,0 +1,223 @@
+/* Global Styles */
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+h1, h2, h3 {
+    color: #E3C053; /* Gold */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; margin-bottom: 40px; text-align: center; }
+
+p { font-size: 1.1em; color: #CCCCCC; }
+
+/* Header */
+#header {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+#header h1 a {
+    color: #E3C053;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul li { margin-left: 20px; }
+
+#nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#nav ul li a:hover { color: #E3C053; }
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#hero h1 { font-size: 3.5em; margin-bottom: 20px; }
+#hero p { font-size: 1.5em; max-width: 800px; margin: 0 auto 40px; }
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: #E3C053;
+    border: 2px solid #E3C053;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.button.primary {
+    background: #E3C053;
+    color: #000000;
+}
+
+.button:hover {
+    background: #E3C053;
+    color: #000000;
+}
+
+/* Differentials Grid */
+.differentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.diff-item {
+    background: #111;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: transform 0.3s;
+}
+
+.diff-item:hover { transform: translateY(-10px); border-color: #E3C053; }
+
+.diff-item .icon {
+    font-size: 3em;
+    color: #E3C053;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    background: #111;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.portfolio-item .image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.portfolio-item:hover .image img { transform: scale(1.1); }
+
+.portfolio-item .content { padding: 30px; }
+
+/* Form Styles */
+#form {
+    background: #111;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+label { display: block; margin-bottom: 10px; color: #E3C053; font-weight: bold; }
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 15px;
+    background: #222;
+    border: 1px solid #444;
+    color: #FFF;
+    margin-bottom: 20px;
+    font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #E3C053;
+    outline: none;
+}
+
+.form-status {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Footer */
+#footer {
+    padding: 60px 20px;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #333;
+}
+
+.icons { list-style: none; padding: 0; display: flex; justify-content: center; margin-bottom: 20px; }
+.icons li { margin: 0 15px; }
+.icons li a { color: #E3C053; font-size: 1.5em; }
+
+.copyright { color: #666; font-size: 0.9em; list-style: none; padding: 0; }
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #hero h1 { font-size: 2.5em; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    #header { flex-direction: column; }
+    #nav ul { margin-top: 10px; }
+}
