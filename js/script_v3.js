@@ -120,6 +120,7 @@ form.addEventListener('submit', function(e) {
 });
 
 // Inicializar formatação de WhatsApp
+let scrollIndicator;
 document.addEventListener('DOMContentLoaded', function() {
     const whatsappInput = document.getElementById('whatsapp');
     if (whatsappInput) {
@@ -127,5 +128,53 @@ document.addEventListener('DOMContentLoaded', function() {
             formatWhatsApp(this);
         });
     }
+
+    scrollIndicator = document.getElementById('scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.classList.remove('visible', 'pulse');
+    }
+
     reveal();
+
+    setTimeout(() => {
+        if (window.scrollY < 50) showIndicator();
+    }, 2000);
 });
+/**
+ * Lógica do Indicador de Scroll Inteligente
+ */
+let scrollTimeout;
+let idleInterval;
+
+// Função para mostrar o indicador
+function showIndicator() {
+    if (!scrollIndicator) return;
+    if (window.scrollY < 50) { // Só mostra se estiver no topo da página
+        scrollIndicator.classList.add('visible', 'pulse');
+    }
+}
+
+// Função para esconder o indicador
+function hideIndicator() {
+    if (!scrollIndicator) return;
+    scrollIndicator.classList.remove('visible', 'pulse');
+}
+
+// Lógica de tempo
+function resetIdleTimer() {
+    hideIndicator();
+    clearTimeout(scrollTimeout);
+    clearInterval(idleInterval);
+
+    // Se o usuário parar no topo, agenda para mostrar após 10 segundos
+    if (window.scrollY < 50) {
+        scrollTimeout = setTimeout(() => {
+            showIndicator();
+        }, 10000); // 10 segundos de inatividade
+    }
+}
+
+// Eventos
+window.addEventListener('scroll', resetIdleTimer);
+window.addEventListener('mousemove', resetIdleTimer);
+window.addEventListener('touchstart', resetIdleTimer);
