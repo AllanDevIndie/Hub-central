@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="css/style_v2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body class="is-preload">
 
     <!-- Header -->
     <header id="header">
-        <h1><a href="../index.html">DEV ALBK | MARKETING & TECH</a></h1>
+        <h1 id="indexmain"><a href="../index.html">DEV ALBK | MARKETING & TECH</a></h1>
         <nav id="nav">
             <ul>
                 <li><a href="../index.html">Início</a></li>
@@ -217,12 +218,27 @@
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
-                <li><a href="https://instagram.com/devalbk" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="https://github.com/AllanDevIndie" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                <li><a href="mailto:contato.ellovendas@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                <li>
+                    <a href="https://instagram.com/devalbk" class="icon" target="_blank" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span class="label">Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/AllanDevIndie" class="icon" target="_blank" aria-label="Github">
+                        <i class="fa-brands fa-github"></i>
+                        <span class="label">Github</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:contato.ellovendas@gmail.com" class="icon" aria-label="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span class="label">Email</span>
+                    </a>
+                </li>
             </ul>
             <ul class="copyright">
-                <li>&copy; Allan Albuquerque | DEV ALBK</li>
+                <li>&copy; Allan Albuquerque | <a id="linkdev" href="https://devalbk.com.br" target="_blank">DEV ALBK</a></li>
             </ul>
         </footer>
 

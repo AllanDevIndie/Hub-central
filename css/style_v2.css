@@ -8,6 +8,12 @@ body {
     line-height: 1.6;
 }
 
+#indexmain {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #E3C053;
+}
+
 #page-wrapper {
     padding-top: 0;
 }
@@ -31,23 +37,31 @@ p { font-size: 1.1em; color: #CCCCCC; }
 
 /* Header */
 #header {
-    background: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    position: fixed;
-    width: 95%;
+    background: rgba(0, 0, 0, 0.9); /* Fundo sólido para garantir leitura */
+    padding: 15px 5%; /* Padding lateral em % para maior flexibilidade */
+    position: absolute; /* Mantendo absoluto como preferido anteriormente */
+    width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
+    box-sizing: border-box; /* Garante que o padding não aumente o width total */
+    border-bottom: 1px solid rgba(227, 192, 83, 0.2);
 }
 
 #header h1 a {
     color: #E3C053;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
+    white-space: nowrap; /* Impede o logo de quebrar linha */
+}
+
+#nav {
+    display: flex;
+    align-items: center;
 }
 
 #nav ul {
@@ -55,15 +69,28 @@ p { font-size: 1.1em; color: #CCCCCC; }
     display: flex;
     margin: 0;
     padding: 0;
+    gap: 25px; /* Espaçamento fixo entre os itens */
 }
 
-#nav ul li { margin-left: 20px; }
+#nav ul li {
+    margin: 0;
+}
 
 #nav ul li a {
     color: #FFFFFF;
     text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    white-space: nowrap; /* Garante que o texto do link não quebre */
+}
+#linkdev {
+    color: #E3C053;
+    text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+
 }
 
 #nav ul li a:hover { color: #E3C053; }
@@ -81,6 +108,10 @@ p { font-size: 1.1em; color: #CCCCCC; }
     background-position: center;
     margin-top: 0;
     padding-top: 20px;
+}
+#hero {
+    margin-top: 0; /* Remove a margem superior que era usada para o header fixo */
+    padding-top: 100px; /* Adiciona um padding para o conteúdo não ficar embaixo do header */
 }
 
 #hero h1 { font-size: 3.5em; margin-bottom: 20px; }
@@ -330,18 +361,33 @@ input:focus, select:focus, textarea:focus {
     border-top: 1px solid #333;
 }
 
-.icons { list-style: none; padding: 0; display: flex; justify-content: center; margin-bottom: 20px; }
-.icons li { margin: 0 15px; }
-.icons li a { color: #E3C053; font-size: 1.5em; transition: color 0.3s; }
-.icons li a:hover { color: #d4af37; }
+.icons { list-style: none; padding: 0; display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 20px; }
+.icons li { margin: 0; }
+.icons li a {
+    color: #E3C053;
+    font-size: 1.5em;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
 
-.copyright { color: #666; font-size: 0.9em; list-style: none; padding: 0; }
+.icons li a:hover {
+    color: #d4af37;
+}
 
-/* Reveal Animation */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+.copyright {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.copyright li {
+    margin: 0;
 }
 
 .reveal.active {
@@ -379,9 +425,10 @@ input:focus, select:focus, textarea:focus {
         margin-top: 0;
     }
 
-    #header h1 a {
-        font-size: 1em;
-    }
+#header h1 {
+    margin: 0;
+    flex-shrink: 0; /* Impede o logo de encolher */
+}
 
     .portfolio-grid { 
         grid-template-columns: 1fr; 
@@ -432,4 +479,32 @@ input:focus, select:focus, textarea:focus {
 
 .wrapper.style5 {
     background: #000;
+}
+
+@media (max-width: 1024px) {
+    #header {
+        padding: 15px 20px;
+    }
+    #nav ul {
+        gap: 15px; /* Diminui o espaço entre links em telas menores */
+    }
+    #header h1 a {
+        font-size: 1em;
+    }
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    #nav {
+        margin-top: 15px;
+    }
+    #nav ul {
+        gap: 15px;
+        justify-content: center;
+    }
 }
