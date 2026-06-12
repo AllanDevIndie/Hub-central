@@ -117,6 +117,13 @@ p { font-size: 1.1em; color: #CCCCCC; }
 #hero h1 { font-size: 3.5em; margin-bottom: 20px; }
 #hero p { font-size: 1.5em; max-width: 800px; margin: 0 auto 40px; }
 
+#contact p {
+    font-size: 1.2em;
+    color: #E3C053;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 /* Buttons */
 .button {
     display: inline-flex;
