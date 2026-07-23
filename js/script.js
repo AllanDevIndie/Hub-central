@@ -85,3 +85,39 @@ cards.forEach((card, index) => {
         card.style.transform = 'translateY(0)';
     }, 400 + (index * 100));
 });
+
+// Anima imagens conforme o usuário rola a página
+const elementosScroll = document.querySelectorAll('.animar-scroll');
+let scrollAnimacaoPendente = false;
+
+function limitarValor(valor, minimo, maximo) {
+    return Math.min(Math.max(valor, minimo), maximo);
+}
+
+function animarElementosNoScroll() {
+    elementosScroll.forEach((elemento) => {
+        const posicao = elemento.getBoundingClientRect();
+        const inicio = window.innerHeight;
+        const fim = window.innerHeight * 0.35;
+        const progresso = limitarValor((inicio - posicao.top) / (inicio - fim), 0, 1);
+        const deslocamento = 90 - (progresso * 90);
+
+        elemento.style.opacity = progresso;
+        elemento.style.transform = `translateY(${deslocamento}px)`;
+    });
+
+    scrollAnimacaoPendente = false;
+}
+
+function solicitarAnimacaoScroll() {
+    if (!scrollAnimacaoPendente) {
+        requestAnimationFrame(animarElementosNoScroll);
+        scrollAnimacaoPendente = true;
+    }
+}
+
+if (elementosScroll.length > 0) {
+    animarElementosNoScroll();
+    window.addEventListener('scroll', solicitarAnimacaoScroll);
+    window.addEventListener('resize', solicitarAnimacaoScroll);
+}

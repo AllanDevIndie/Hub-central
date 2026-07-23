@@ -260,6 +260,12 @@ footer {
     box-shadow: 0 10px 20px rgba(100, 182, 172, 0.3);
 }
 
+.animar-scroll {
+    opacity: 0;
+    transform: translateY(90px);
+    will-change: opacity, transform;
+}
+
 /* Página Sobre */
 body.pagina-sobre {
     height: 100vh;
